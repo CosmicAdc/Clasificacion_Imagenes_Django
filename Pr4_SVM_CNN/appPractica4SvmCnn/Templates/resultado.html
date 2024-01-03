@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Predicción</title>
+    {% load static %}
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #resultado {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4caf50;
+            margin-bottom: 24px;
+        }
+
+        #imagen-preview {
+            width: 250px;
+            height: 225px;
+            margin-bottom: 24px;
+        }
+
+        #volver-button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #volver-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="resultado">
+            {% if resultado %}
+                Resultado de la predicción: {{ resultado }}
+            {% else %}
+                No se ha realizado ninguna predicción.
+            {% endif %}
+        </div>
+        <!-- Aquí puedes mostrar la imagen procesada si lo deseas -->
+        <br>
+        <button id="volver-button" onclick="window.location.href='{% url 'vistaPrincipal' %}'">Volver</button>
+    </div>
+</body>
+</html>
