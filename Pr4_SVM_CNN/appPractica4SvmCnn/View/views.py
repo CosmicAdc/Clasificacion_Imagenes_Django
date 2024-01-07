@@ -11,6 +11,7 @@ import base64
 from django.http import HttpResponse
 import numpy as np
 
+()
 class Clasificacion():
 
     def vistaPrincipal(request):
