@@ -95,7 +95,7 @@ ROOT_URLCONF = "Pr4_SVM_CNN.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        'DIRS': [os.path.join(BASE_DIR, 'appPractica4SvmCnn', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'appPractica4SvmCnn', 'Templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
