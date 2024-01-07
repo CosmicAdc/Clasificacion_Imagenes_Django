@@ -49,6 +49,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('principal/', Clasificacion.vistaPrincipal, name='vistaPrincipal'),
     path('resultado/', Clasificacion.subir_imagen, name='subir_imagen'),
+    path('', Clasificacion.subir_imagen, name='vistaPrincipal'),
 
 ]
 if settings.DEBUG:
