@@ -63,7 +63,7 @@ def prediccionCNN(imagen):
     # ImagenAplanada
     CNN_Predict = cargarNN("Recursos/CNNWeb")
     prediccion_CNN = CNN_Predict.predict(imagen.reshape(1, 32, 32, 3))
-    print("Predicción SVM:", prediccion_CNN)
+    print("Predicción CNM:", prediccion_CNN)
     predicciones = prediccion_CNN.flatten()
     clase = np.argmax(predicciones)
     valor = predicciones[clase]
