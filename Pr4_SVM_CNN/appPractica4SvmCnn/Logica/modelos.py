@@ -51,7 +51,7 @@ def cargarObjeto(nombreArchivo):
 
 def prediccionSVM(imagen):
         #ImagenAplanada
-        datos = pd.read_excel("Recursos/labels.xlsx", header=0)
+        datos = pd.read_excel("Recursos/Labels.xlsx", header=0)
         imagen_flatten = imagen.reshape(-1)
         imagen_flatten = imagen_flatten / 255
         SVM_Predict=cargarObjeto("Recursos/SVMWeb")
@@ -65,7 +65,7 @@ def prediccionSVM(imagen):
 
 def prediccionCNN(imagen):
     # ImagenAplanada
-    datos = pd.read_excel("Recursos/labels.xlsx", header=0)
+    datos = pd.read_excel("Recursos/Labels.xlsx", header=0)
     CNN_Predict = cargarNN("Recursos/CNNWeb")
     prediccion_CNN = CNN_Predict.predict(imagen.reshape(1, 32, 32, 3))
     print("Predicción CNM:", prediccion_CNN)
