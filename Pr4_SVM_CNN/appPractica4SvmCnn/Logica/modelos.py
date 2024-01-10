@@ -51,24 +51,29 @@ def cargarObjeto(nombreArchivo):
 
 def prediccionSVM(imagen):
         #ImagenAplanada
+        datos = pd.read_excel("Recursos/labels.xlsx", header=0)
         imagen_flatten = imagen.reshape(-1)
         imagen_flatten = imagen_flatten / 255
         SVM_Predict=cargarObjeto("Recursos/SVMWeb")
         prediccion_SVM = SVM_Predict.predict(imagen_flatten.reshape(1, -1))
-        print("Predicción SVM:", prediccion_SVM)
-        return prediccion_SVM
+        label = datos.loc[datos['Clase'] == prediccion_SVM[0], 'Nombre'].values[0]
+        resultado = {'clase: ': prediccion_SVM , 'label:':label}
+        #,'label:': label}
+        print("Predicción SVM:", resultado)
+        return resultado
 
 
 def prediccionCNN(imagen):
     # ImagenAplanada
+    datos = pd.read_excel("Recursos/labels.xlsx", header=0)
     CNN_Predict = cargarNN("Recursos/CNNWeb")
     prediccion_CNN = CNN_Predict.predict(imagen.reshape(1, 32, 32, 3))
     print("Predicción CNM:", prediccion_CNN)
     predicciones = prediccion_CNN.flatten()
     clase = np.argmax(predicciones)
     valor = predicciones[clase]
-
-    resultado = {'clase': clase, 'valor': valor}
+    label  = datos.loc[datos['Clase'] == clase, 'Nombre'].values[0]
+    resultado = {'clase': clase, 'valor': valor , ' label:':label }
     return resultado
 
 
